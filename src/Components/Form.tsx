@@ -26,6 +26,7 @@ const Form: React.FC<FormProps> = ({
               className="form-control"
               name="name"
               value={formData.name}
+              placeholder="Enter your name"
               onChange={setFormData}
             />
           </div>
@@ -36,6 +37,7 @@ const Form: React.FC<FormProps> = ({
               className="form-control"
               name="age"
               value={formData.age}
+              placeholder="Enter you age"
               onChange={setFormData}
             />
           </div>
@@ -46,6 +48,7 @@ const Form: React.FC<FormProps> = ({
               className="form-control"
               name="city"
               value={formData.city}
+              placeholder="Enter your city"
               onChange={setFormData}
             />
           </div>
