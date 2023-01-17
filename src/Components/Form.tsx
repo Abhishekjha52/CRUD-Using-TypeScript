@@ -4,56 +4,62 @@ interface FormProps {
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   formData: {
     name: string;
-    age: string;
+    age: number;
     city: string;
   };
   setFormData: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  edit: boolean;
+  activeInd: number | -1;
 }
 
 const Form: React.FC<FormProps> = ({
   onSubmit,
   formData,
   setFormData,
-  edit,
+  activeInd,
 }) => {
     return (
         <form onSubmit={onSubmit}>
           <div className="form-group">
-            <label>Name</label>
+            <label className="font-weight-bold">Name</label><br/>
             <input
               type="text"
-              className="form-control"
+              className="form-control form-control-lg"
               name="name"
               value={formData.name}
               placeholder="Enter your name"
               onChange={setFormData}
+              required
             />
           </div>
+          <br/>
           <div className="form-group">
-            <label>Age</label>
+            <label className="font-weight-bold">Age</label><br/>
             <input
-              type="text"
-              className="form-control"
+              type="number"
+              className="form-control form-control-lg"
               name="age"
-              value={formData.age}
+              value={formData.age!==0 ? formData.age : ""}
               placeholder="Enter you age"
               onChange={setFormData}
+              required
             />
           </div>
+          <br/>
           <div className="form-group">
-            <label>City</label>
+            <label className="fonr-weight-bold">City</label>
             <input
               type="text"
-              className="form-control"
+              className="form-control form-control-lg"
               name="city"
               value={formData.city}
               placeholder="Enter your city"
               onChange={setFormData}
+              required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            {edit ? "Update" : "Add"}
+          <br/>
+          <button type="submit" className="btn btn-success btn-lg btn-block">
+            {activeInd!==-1 ? "UPDATE" : "ADD"}
           </button>
         </form>
       );
