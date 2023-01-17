@@ -7,14 +7,14 @@ interface FormProps {
     age: number;
     city: string;
   };
-  setFormData: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   activeInd: number | -1;
 }
 
 const Form: React.FC<FormProps> = ({
   onSubmit,
   formData,
-  setFormData,
+  onChange,
   activeInd,
 }) => {
     return (
@@ -27,7 +27,7 @@ const Form: React.FC<FormProps> = ({
               name="name"
               value={formData.name}
               placeholder="Enter your name"
-              onChange={setFormData}
+              onChange={onChange}
               required
             />
           </div>
@@ -40,7 +40,7 @@ const Form: React.FC<FormProps> = ({
               name="age"
               value={formData.age!==0 ? formData.age : ""}
               placeholder="Enter you age"
-              onChange={setFormData}
+              onChange={onChange}
               required
             />
           </div>
@@ -53,7 +53,7 @@ const Form: React.FC<FormProps> = ({
               name="city"
               value={formData.city}
               placeholder="Enter your city"
-              onChange={setFormData}
+              onChange={onChange}
               required
             />
           </div>
