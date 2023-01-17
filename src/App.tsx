@@ -40,10 +40,11 @@ const App: React.FC = () => {
   };
 
   const updateUser = () => {
-    const updatedUser = {...users[activeInd], ...formData};
-    const newUsers = [...users];
-    newUsers[activeInd] = updatedUser;
-    setUsers(newUsers);
+    setUsers((prevUsers: FormData[]) => {
+      const updatedUsers = [...prevUsers];
+      updatedUsers[activeInd] = { ...updatedUsers[activeInd], ...formData };
+      return updatedUsers;
+    });
     setActiveInd(-1);
   };
 
