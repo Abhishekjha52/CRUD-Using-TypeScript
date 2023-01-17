@@ -1,7 +1,7 @@
 import React from "react";
 
 interface UserListProps {
-  users: { id: string; name: string; age: string; city: string }[];
+  users: { id: string; name: string; age: number; city: string }[];
   handleEdit: (index: number) => void;
   handleDelete: (id: string) => void;
 }
