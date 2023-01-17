@@ -64,6 +64,14 @@ const App: React.FC = () => {
     }
   };
 
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+        ...formData,
+        [name]: value
+    });
+  }
+
   return (
     <div>
       <center>
@@ -75,13 +83,7 @@ const App: React.FC = () => {
             <Form
               onSubmit={addUser}
               formData={formData}
-              setFormData={(e) => {
-                const { name, value } = e.target;
-                setFormData((prevState) => ({
-                  ...prevState,
-                  [name]: value,
-                }));
-              }}
+              onChange={onChange}
               activeInd={activeInd}
             />
           </div>
